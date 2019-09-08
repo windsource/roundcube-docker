@@ -30,5 +30,11 @@ docker run -d -p 8000:80 windsource/roundcube
 docker build -t windsource/roundcube:1.4-rc1 -t windsource/roundcube:latest .
 ```
 
+Clean build:
+
+```bash
+docker build -t windsource/roundcube:1.4-rc1 -t windsource/roundcube:latest --no-chache .
+```
+
 
 
