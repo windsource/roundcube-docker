@@ -22,7 +22,6 @@
         "endroid/qr-code": "~1.6.5",
         "roundcube/carddav": "dev-master",
         "kitist/html5_notifier": "dev-master",
-        "boressoft/ident_switch": "dev-master",
         "mfreiholz/persistent_login": "dev-master"
     },
     "require-dev": {

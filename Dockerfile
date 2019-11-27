@@ -30,7 +30,7 @@ RUN set -ex; \
 		pdo_pgsql \
 		pdo_sqlite \
         zip
-RUN curl -L https://github.com/roundcube/roundcubemail/releases/download/1.4-rc1/roundcubemail-1.4-rc1-complete.tar.gz | \
+RUN curl -L https://github.com/roundcube/roundcubemail/releases/download/1.4.1/roundcubemail-1.4.1-complete.tar.gz | \
     tar xz --strip-components=1
 
 # Install composer
