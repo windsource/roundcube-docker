@@ -1,7 +1,7 @@
 .PHONY: build push
 
 IMAGE = windsource/roundcube
-VERSION = 1.4.1-v1
+VERSION = 1.4.4-v1
 
 build:
 	docker build -t $(IMAGE):$(VERSION) -t $(IMAGE):latest .
