@@ -1,36 +1,36 @@
 FROM php:7.3-apache
 
 RUN set -ex; \
-	apt-get update; \
+    apt-get update; \
     apt-get install -y --no-install-recommends \
-        git \
-        zip \
-        wget \
-        unzip \
-        sqlite3 \
-        libzip-dev \
-        libfreetype6-dev \
-		libjpeg62-turbo-dev \
-		libpng-dev \
-        libicu-dev \
-		libldap2-dev \
-		libpq-dev \
-		libsqlite3-dev \
-        zlib1g-dev; \
+    git \
+    zip \
+    wget \
+    unzip \
+    sqlite3 \
+    libzip-dev \
+    libfreetype6-dev \
+    libjpeg62-turbo-dev \
+    libpng-dev \
+    libicu-dev \
+    libldap2-dev \
+    libpq-dev \
+    libsqlite3-dev \
+    zlib1g-dev; \
     debMultiarch="$(dpkg-architecture --query DEB_BUILD_MULTIARCH)"; \
-	docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-png-dir=/usr --with-jpeg-dir=/usr; \
-	docker-php-ext-configure ldap --with-libdir="lib/$debMultiarch"; \
-	docker-php-ext-install \
-		exif \
-		gd \
-        # imagick \
-		intl \
-		ldap \
-		pdo_mysql \
-		pdo_pgsql \
-		pdo_sqlite \
-        zip
-RUN curl -L https://github.com/roundcube/roundcubemail/releases/download/1.4.4/roundcubemail-1.4.4-complete.tar.gz | \
+    docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-png-dir=/usr --with-jpeg-dir=/usr; \
+    docker-php-ext-configure ldap --with-libdir="lib/$debMultiarch"; \
+    docker-php-ext-install \
+    exif \
+    gd \
+    # imagick \
+    intl \
+    ldap \
+    pdo_mysql \
+    pdo_pgsql \
+    pdo_sqlite \
+    zip
+RUN curl -L https://github.com/roundcube/roundcubemail/releases/download/1.4.9/roundcubemail-1.4.9-complete.tar.gz | \
     tar xz --strip-components=1
 
 # Install composer
