@@ -9,13 +9,18 @@ Contains a docker image for [Roundcube Webmail](https://roundcube.net/). It also
 
 * roundcube/carddav
 * kitist/html5_notifier
-* mfreiholz/persistent_login
 
-The image is not based on the [original Roundcube docker image](https://github.com/roundcube/roundcubemail-docker) as this was missing the composer to add additional plugins and that could not be added easily.
+The image is based on the [original Roundcube docker image](https://hub.docker.com/r/roundcube/roundcubemail) and is also available on
+[Docker Hub](https://hub.docker.com/r/windsource/roundcube).
 
-The image is also available on [Docker Hub](https://hub.docker.com/r/windsource/roundcube).
+Currently the mail servers from GMX are configured. That can be changed by the
+settings provided by the
+[base image](https://hub.docker.com/r/roundcube/roundcubemail).
 
-Currently the mail servers from GMX are configured. That can be changed in `config.inc.php`.
+## Database
+
+The settings are stored in an SQLite DB in `/var/roundcube/db/sqlite.db` which
+is owned by `root:root`.
 
 ## Use the image
 
