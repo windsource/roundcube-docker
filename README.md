@@ -20,7 +20,7 @@ settings provided by the
 ## Database
 
 The settings are stored in an SQLite DB in `/var/roundcube/db/sqlite.db` which
-is owned by `root:root`.
+is / has to be owned by `www-data:www-data`.
 
 ## Use the image
 
