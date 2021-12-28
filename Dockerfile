@@ -1,4 +1,4 @@
-FROM roundcube/roundcubemail:1.5-rc-apache
+FROM roundcube/roundcubemail:1.5.1-apache
 
 RUN set -ex; \
     apt-get update; \
@@ -6,24 +6,17 @@ RUN set -ex; \
     git \
     ; \
     \
-    curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/bin --filename=composer; \
-    mv /usr/src/roundcubemail/composer.json-dist /usr/src/roundcubemail/composer.json; \
-    \
     composer \
-    --working-dir=/usr/src/roundcubemail/ \
-    --prefer-dist --prefer-stable \
-    --no-update --no-interaction \
-    --optimize-autoloader --apcu-autoloader \
-    require \
-    roundcube/carddav:v4.1.1 \
-    kitist/html5_notifier:dev-master \
-    ; \
-    composer \
-    --working-dir=/usr/src/roundcubemail/ \
-    --prefer-dist --no-dev \
-    --no-interaction \
-    --optimize-autoloader --apcu-autoloader \
-    update;
+        --working-dir=/usr/src/roundcubemail/ \
+        --prefer-dist \
+        --prefer-stable \
+        --update-no-dev \
+        --no-interaction \
+        --optimize-autoloader \
+        require \
+            roundcube/carddav:v4.3.0 \
+            kitist/html5_notifier:dev-master \
+        ; 
 
 ENV ROUNDCUBEMAIL_PLUGINS=archive,zipdownload,carddav,html5_notifier
 ENV ROUNDCUBEMAIL_DEFAULT_HOST=ssl://imap.gmx.net
@@ -32,3 +25,5 @@ ENV ROUNDCUBEMAIL_SMTP_SERVER=ssl://mail.gmx.net
 ENV ROUNDCUBEMAIL_SMTP_PORT=465
 ENV ROUNDCUBEMAIL_UPLOAD_MAX_FILESIZE=50M
 ENV ROUNDCUBEMAIL_SKIN=elastic
+ENV ROUNDCUBEMAIL_ASPELL_DICTS=de,en
+
