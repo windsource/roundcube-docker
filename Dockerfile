@@ -1,4 +1,4 @@
-FROM roundcube/roundcubemail:1.5.2-apache
+FROM roundcube/roundcubemail:1.6.0-apache
 
 RUN set -ex; \
     apt-get update; \
@@ -14,7 +14,7 @@ RUN set -ex; \
         --no-interaction \
         --optimize-autoloader \
         require \
-            roundcube/carddav:v4.3.0 \
+            roundcube/carddav:v4.4.6 \
             kitist/html5_notifier:dev-master \
         ; 
 
@@ -26,4 +26,3 @@ ENV ROUNDCUBEMAIL_SMTP_PORT=465
 ENV ROUNDCUBEMAIL_UPLOAD_MAX_FILESIZE=50M
 ENV ROUNDCUBEMAIL_SKIN=elastic
 ENV ROUNDCUBEMAIL_ASPELL_DICTS=de,en
-
