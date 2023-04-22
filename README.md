@@ -31,5 +31,5 @@ docker run -d -p 8000:80 windsource/roundcube
 ## Build image
 
 ```bash
-make build
+docker build -t windsource/roundcube .
 ```
