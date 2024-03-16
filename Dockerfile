@@ -1,12 +1,10 @@
-FROM roundcube/roundcubemail:1.6.4-apache
+FROM roundcube/roundcubemail:1.6.6-apache
 
-RUN set -ex; \
-    apt-get update; \
+RUN apt-get update && \
     apt-get install -y --no-install-recommends \
-    git \
-    ; \
-    \
-    composer \
+    git
+
+RUN COMPOSER_ALLOW_SUPERUSER=1 composer \
         --working-dir=/usr/src/roundcubemail/ \
         --prefer-dist \
         --prefer-stable \
@@ -14,7 +12,7 @@ RUN set -ex; \
         --no-interaction \
         --optimize-autoloader \
         require \
-            roundcube/carddav:v4.4.6 \
+            roundcube/carddav:v5.1.0 \
             kitist/html5_notifier:dev-master \
         ; 
 
